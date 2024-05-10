@@ -1,0 +1,605 @@
+2024-04-23 08:10:28.978 [INFO] [GToken][params:{"AuthExcludePaths":"[\"/admin/user/info\",\"/admin/system/user/info\"]","AuthFailMsg":"请求错误或登录超时","AuthPaths":"[\"/backend/admin/info\"]","CacheKey":"GToken:","CacheMode":2,"EncryptKey":"12345678912345678912345678912345","LoginPath":"/login","LogoutPath":"/user/logout","MiddlewareType":2,"MultiLogin":true,"Timeout":864000000,"TokenDelimiter":"_"}]start... 
+2024-04-23 08:10:28.979 [INFO] {d8ecac963dc0c817cc4966383ef7b01b} [GToken][params:{"AuthExcludePaths":"[\"/admin/user/info\",\"/admin/system/user/info\"]","AuthFailMsg":"请求错误或登录超时","AuthPaths":"[\"/backend/admin/info\"]","CacheKey":"GToken:","CacheMode":2,"EncryptKey":"12345678912345678912345678912345","LoginPath":"/login","LogoutPath":"/user/logout","MiddlewareType":1,"MultiLogin":true,"Timeout":864000000,"TokenDelimiter":"_"}]start... 
+2024-04-23 08:10:28.979 [INFO] {d8ecac963dc0c817cc4966383ef7b01b} [GToken][params:{"AuthExcludePaths":"","AuthFailMsg":"请求错误或登录超时","AuthPaths":"","CacheKey":"GToken:","CacheMode":2,"EncryptKey":"12345678912345678912345678912345","LoginPath":"/login","LogoutPath":"/user/logout","MiddlewareType":1,"MultiLogin":true,"Timeout":864000000,"TokenDelimiter":"_"}]start... 
+2024-04-23 08:10:28.987 [INFO] pid[98039]: http server started listening on [:8000]
+2024-04-23 08:10:28.987 [INFO] swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2024-04-23 08:10:28.987 [INFO] openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |                ROUTE                |                              HANDLER                              |             MIDDLEWARE               
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | ALL    | /*                                  | github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing   | GLOBAL MIDDLEWARE                    
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | ALL    | /api.json                           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec             |                                      
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/address                    | goframe-shop-v2/internal/controller.(*cAddress).Delete            | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/address                    | goframe-shop-v2/internal/controller.(*cAddress).Add               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | PUT    | /backend/address                    | goframe-shop-v2/internal/controller.(*cAddress).Update            | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/address/list               | goframe-shop-v2/internal/controller.(*cAddress).CityList          | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/address/page               | goframe-shop-v2/internal/controller.(*cAddress).Page              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/admin/add                  | goframe-shop-v2/internal/controller.(*cAdmin).Create              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/admin/delete               | goframe-shop-v2/internal/controller.(*cAdmin).Delete              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/admin/info                 | goframe-shop-v2/internal/controller.(*cAdmin).Info                | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/admin/list                 | goframe-shop-v2/internal/controller.(*cAdmin).List                | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/admin/update/{Id}          | goframe-shop-v2/internal/controller.(*cAdmin).Update              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/article/add                | goframe-shop-v2/internal/controller/backend.(*cArticle).Create    | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/article/delete             | goframe-shop-v2/internal/controller/backend.(*cArticle).Delete    | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/article/list               | goframe-shop-v2/internal/controller/backend.(*cArticle).List      | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/article/update             | goframe-shop-v2/internal/controller/backend.(*cArticle).Update    | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/category/add               | goframe-shop-v2/internal/controller.(*cCategory).Create           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/category/delete            | goframe-shop-v2/internal/controller.(*cCategory).Delete           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/category/list              | goframe-shop-v2/internal/controller.(*cCategory).List             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/category/list/all          | goframe-shop-v2/internal/controller.(*cCategory).ListAll          | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/category/update/{Id}       | goframe-shop-v2/internal/controller.(*cCategory).Update           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/coupon/add                 | goframe-shop-v2/internal/controller.(*cCoupon).Create             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/coupon/delete              | goframe-shop-v2/internal/controller.(*cCoupon).Delete             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/coupon/list                | goframe-shop-v2/internal/controller.(*cCoupon).List               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/coupon/list/all            | goframe-shop-v2/internal/controller.(*cCoupon).ListAll            | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/coupon/update              | goframe-shop-v2/internal/controller.(*cCoupon).Update             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/data/echarts               | goframe-shop-v2/internal/controller.(*cData).Echarts              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/data/head                  | goframe-shop-v2/internal/controller.(*cData).HeadCard             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/file                       | goframe-shop-v2/internal/controller.(*cFile).Upload               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/frontend/rotation/list     | goframe-shop-v2/internal/controller.(*cRotation).ListFrontend     | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/goods/add                  | goframe-shop-v2/internal/controller.(*cGoods).Create              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/goods/delete               | goframe-shop-v2/internal/controller.(*cGoods).Delete              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/goods/detail               | goframe-shop-v2/internal/controller.(*cGoods).Detail              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/goods/list                 | goframe-shop-v2/internal/controller.(*cGoods).List                | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/goods/options/add          | goframe-shop-v2/internal/controller.(*cGoodsOptions).Create       | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/goods/options/delete       | goframe-shop-v2/internal/controller.(*cGoodsOptions).Delete       | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/goods/options/list         | goframe-shop-v2/internal/controller.(*cGoodsOptions).List         | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/goods/options/update       | goframe-shop-v2/internal/controller.(*cGoodsOptions).Update       | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/goods/update               | goframe-shop-v2/internal/controller.(*cGoods).Update              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | ALL    | /backend/login                      | github.com/goflyfox/gtoken/gtoken.(*GfToken).Login                | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/logout                     | goframe-shop-v2/internal/controller.(*cLogin).Logout              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/order/detail               | goframe-shop-v2/internal/controller.(*cOrder).Detail              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/order/list                 | goframe-shop-v2/internal/controller.(*cOrder).List                | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/permission/add             | goframe-shop-v2/internal/controller.(*cPermission).Create         | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/permission/delete          | goframe-shop-v2/internal/controller.(*cPermission).Delete         | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/permission/list            | goframe-shop-v2/internal/controller.(*cPermission).List           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/permission/update          | goframe-shop-v2/internal/controller.(*cPermission).Update         | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/position/add               | goframe-shop-v2/internal/controller.(*cPosition).Create           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/position/delete            | goframe-shop-v2/internal/controller.(*cPosition).Delete           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/position/list              | goframe-shop-v2/internal/controller.(*cPosition).List             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/position/update/{Id}       | goframe-shop-v2/internal/controller.(*cPosition).Update           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/refresh_token              | goframe-shop-v2/internal/controller.(*cLogin).RefreshToken        | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/role/add                   | goframe-shop-v2/internal/controller.(*cRole).Create               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/role/add/permission        | goframe-shop-v2/internal/controller.(*cRole).AddPermission        | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/role/delete                | goframe-shop-v2/internal/controller.(*cRole).Delete               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/role/delete/permission     | goframe-shop-v2/internal/controller.(*cRole).DeletePermission     | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/role/list                  | goframe-shop-v2/internal/controller.(*cRole).List                 | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/role/update                | goframe-shop-v2/internal/controller.(*cRole).Update               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/rotation/add               | goframe-shop-v2/internal/controller.(*cRotation).Create           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/rotation/delete            | goframe-shop-v2/internal/controller.(*cRotation).Delete           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/rotation/list              | goframe-shop-v2/internal/controller.(*cRotation).List             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/rotation/update            | goframe-shop-v2/internal/controller.(*cRotation).Update           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/upload/cloud               | goframe-shop-v2/internal/controller.(*cUpload).UploadImgToCloud   | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/user/coupon/add            | goframe-shop-v2/internal/controller.(*cUserCoupon).Create         | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /backend/user/coupon/delete         | goframe-shop-v2/internal/controller.(*cUserCoupon).Delete         | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /backend/user/coupon/list           | goframe-shop-v2/internal/controller.(*cUserCoupon).List           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /backend/user/coupon/update         | goframe-shop-v2/internal/controller.(*cUserCoupon).Update         | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | ALL    | /backend/user/logout                | github.com/goflyfox/gtoken/gtoken.(*GfToken).Logout               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/add/cart                  | goframe-shop-v2/internal/controller.(*cCart).Add                  | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/add/collection            | goframe-shop-v2/internal/controller.(*cCollection).Add            | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/add/comment               | goframe-shop-v2/internal/controller.(*cComment).Add               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/add/order                 | goframe-shop-v2/internal/controller.(*cOrder).Add                 | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/add/order/good/comment    | goframe-shop-v2/internal/controller.(*cOrderGoodsComments).Add    | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/add/praise                | goframe-shop-v2/internal/controller.(*cPraise).Add                | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/article/add               | goframe-shop-v2/internal/controller/frontend.(*cArticle).Create   | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /frontend/article/delete            | goframe-shop-v2/internal/controller/frontend.(*cArticle).Delete   | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /frontend/article/detail            | goframe-shop-v2/internal/controller/frontend.(*cArticle).Detail   | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /frontend/article/list              | goframe-shop-v2/internal/controller/frontend.(*cArticle).List     | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /frontend/article/my                | goframe-shop-v2/internal/controller/frontend.(*cArticle).MyList   | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/article/update            | goframe-shop-v2/internal/controller/frontend.(*cArticle).Update   | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/cart/list                 | goframe-shop-v2/internal/controller.(*cCart).List                 | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/collection/list           | goframe-shop-v2/internal/controller.(*cCollection).List           | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/comment/list              | goframe-shop-v2/internal/controller.(*cComment).List              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/delete/cart               | goframe-shop-v2/internal/controller.(*cCart).Delete               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/delete/collection         | goframe-shop-v2/internal/controller.(*cCollection).Delete         | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/delete/comment            | goframe-shop-v2/internal/controller.(*cComment).Delete            | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/delete/order/good/comment | goframe-shop-v2/internal/controller.(*cOrderGoodsComments).Delete | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/delete/praise             | goframe-shop-v2/internal/controller.(*cPraise).Delete             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/goods/add                 | goframe-shop-v2/internal/controller.(*cGoods).Create              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | DELETE | /frontend/goods/delete              | goframe-shop-v2/internal/controller.(*cGoods).Delete              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/goods/detail              | goframe-shop-v2/internal/controller.(*cGoods).Detail              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /frontend/goods/list                | goframe-shop-v2/internal/controller.(*cGoods).List                | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/goods/update              | goframe-shop-v2/internal/controller.(*cGoods).Update              | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | ALL    | /frontend/login                     | github.com/goflyfox/gtoken/gtoken.(*GfToken).Login                | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/praise/list               | goframe-shop-v2/internal/controller.(*cPraise).List               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/refund/add                | goframe-shop-v2/internal/controller/frontend.(*cRefund).Add       | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /frontend/refund/detail             | goframe-shop-v2/internal/controller/frontend.(*cRefund).Detail    | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /frontend/refund/list               | goframe-shop-v2/internal/controller/frontend.(*cRefund).List      | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/register                  | goframe-shop-v2/internal/controller.(*cUser).Register             | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | POST   | /frontend/update/password           | goframe-shop-v2/internal/controller.(*cUser).UpdatePassword       | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | GET    | /frontend/user/info                 | goframe-shop-v2/internal/controller.(*cUser).Info                 | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | ALL    | /frontend/user/logout               | github.com/goflyfox/gtoken/gtoken.(*GfToken).Logout               | service.IMiddleware.CORS             
+          |        |                                     |                                                                   | service.IMiddleware.Ctx              
+          |        |                                     |                                                                   | service.IMiddleware.ResponseHandler  
+          |        |                                     |                                                                   | gtoken.(*GfToken).authMiddleware     
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+  :8000   | ALL    | /swagger/*                          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI               | HOOK_BEFORE_SERVE                    
+----------|--------|-------------------------------------|-------------------------------------------------------------------|--------------------------------------
+
+2024-04-23 08:12:16.646 [WARN] {280ec0a856c0c817cd4966386a9b12b7} [GToken]Authorization : beiuWz8Ay1DBljoiQv2hFBu2Q72sQ3chJ7+a+s+RuH7E690x+M4niIJNuT24zBMS get token key fail
+2024-04-23 08:12:34.276 [DEBU] {80a876bf5ac0c817cf4966383d518a2b} [ 70 ms] [default] [rows:12 ] SHOW FULL COLUMNS FROM `user_info`
+2024-04-23 08:12:34.280 [DEBU] {c820c6c35ac0c817d0496638ee19ed05} [  2 ms] [default] [rows:0  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='amdin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 08:12:52.114 [DEBU] {889cbeea5ec0c817d24966381a1cf0d1} [  2 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 08:12:52.127 [DEBU] {a8bc96eb5ec0c817d3496638568a5efd} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 08:13:47.384 [WARN] {083a33c96bc0c817d44966385f1c8497} [GToken]Authorization : 3NkZSsqmfKpARFlJl/z01Tk1Q4jiCP1SxKuPycJKyv055at1/SGL5CqUNKw8yZTa get token key fail
+2024-04-23 08:13:53.385 [DEBU] {6050142d6dc0c817d5496638db011172} [ 29 ms] [default] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2024-04-23 08:13:53.396 [DEBU] {6050142d6dc0c817d5496638db011172} [ 11 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:13:53.396 [DEBU] {6050142d6dc0c817d5496638db011172} [  0 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:31:00.628 [DEBU] {70370e565cc1c817da496638328535a0} [ 89 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 08:31:00.634 [DEBU] {b8cfa55b5cc1c817db496638f1fb4f48} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 08:32:30.407 [DEBU] {f8f8694171c1c817dd49663881e7b897} [ 13 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:32:30.408 [DEBU] {f8f8694171c1c817dd49663881e7b897} [  1 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:34:02.892 [DEBU] {300da8c986c1c817de4966389f023005} [  7 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:34:02.893 [DEBU] {300da8c986c1c817de4966389f023005} [  0 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:34:20.745 [DEBU] {f0f913f38ac1c817df496638f8abc62f} [  1 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:34:20.749 [DEBU] {f0f913f38ac1c817df496638f8abc62f} [  3 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:34:38.171 [DEBU] {c89ab0018fc1c817e049663874b6102d} [  3 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:34:38.171 [DEBU] {c89ab0018fc1c817e049663874b6102d} [  0 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:35:32.489 [DEBU] {c0f5fca59bc1c817e64966386774276f} [  8 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:35:32.491 [DEBU] {c0f5fca59bc1c817e64966386774276f} [  1 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:35:48.845 [DEBU] {c89756769fc1c817e74966383e35816d} [  1 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:35:48.845 [DEBU] {c89756769fc1c817e74966383e35816d} [  0 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:38:03.954 [DEBU] {30d8bfeabec1c817e84966385869621d} [ 10 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:38:03.957 [DEBU] {30d8bfeabec1c817e84966385869621d} [  2 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:38:23.426 [DEBU] {68e41574c3c1c817e9496638a8721d97} [  0 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:38:23.427 [DEBU] {68e41574c3c1c817e9496638a8721d97} [  0 ms] [default] [rows:1  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-04-23 08:39:12.114 [DEBU] {18b070c9cec1c817eb4966387c056e0b} [  8 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:39:12.117 [DEBU] {18b070c9cec1c817eb4966387c056e0b} [  1 ms] [default] [rows:0  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 20,10
+2024-04-23 08:40:34.537 {f03817fae1c1c817ed496638af1e9091} 200 "GET http localhost:8000 /backend/rotation/list?page=%273%27 HTTP/1.1" 0.015, ::1, "http://localhost:8080/", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0", 51, "Validation Failed", ""
+Stack:
+分页号码错误
+2024-04-23 08:40:49.171 [DEBU] {e89bf062e5c1c817ee49663832769caf} [  5 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:40:49.172 [DEBU] {e89bf062e5c1c817ee49663832769caf} [  1 ms] [default] [rows:0  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 20,10
+2024-04-23 08:43:09.200 [DEBU] {18bf05fd05c2c817ef496638da04e892} [  6 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:43:09.202 [DEBU] {18bf05fd05c2c817ef496638da04e892} [  1 ms] [default] [rows:0  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 20,10
+2024-04-23 08:44:18.205 [DEBU] {a0b3670e16c2c817f0496638b432dc96} [  3 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:44:18.206 [DEBU] {a0b3670e16c2c817f0496638b432dc96} [  0 ms] [default] [rows:0  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 20,10
+2024-04-23 08:45:13.300 [DEBU] {f0821de122c2c817f14966382a4f8a0f} [ 11 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:45:13.305 [DEBU] {f0821de122c2c817f14966382a4f8a0f} [  3 ms] [default] [rows:0  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 20,10
+2024-04-23 08:47:19.284 [DEBU] {e850353640c2c817f2496638989457a4} [ 23 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:47:19.286 [DEBU] {e850353640c2c817f2496638989457a4} [  1 ms] [default] [rows:0  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 20,10
+2024-04-23 08:47:52.832 [DEBU] {70def10648c2c817f34966385263839c} [  3 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-04-23 08:47:52.836 [DEBU] {70def10648c2c817f34966385263839c} [  3 ms] [default] [rows:0  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 20,10
+2024-04-23 09:18:22.168 [DEBU] {d884bcf0f1c3c817064a66383186e4e6} [ 60 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:18:22.174 [DEBU] {682c9af4f1c3c817074a6638168f9078} [  2 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:18:32.701 [DEBU] {98232068f4c3c817094a663802cd4376} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:18:32.705 [DEBU] {60424d68f4c3c8170a4a6638d8d41072} [  2 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:18:34.662 [DEBU] {60a704ddf4c3c8170c4a66383360cad4} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:18:34.663 [DEBU] {38771bddf4c3c8170d4a6638bd221fe1} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:20:47.786 [DEBU] {b84a2ddb13c4c8170f4a66384385f702} [ 11 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:20:47.788 [DEBU] {803ef3db13c4c817104a663874d94556} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:21:21.312 [DEBU] {381a07aa1bc4c817124a6638a4c4bd28} [  2 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:21:21.313 [DEBU] {08673aaa1bc4c817134a66385439cb21} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:22:33.305 [DEBU] {900b126d2cc4c817154a6638176e1957} [  4 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:22:33.307 [DEBU] {d0505f6d2cc4c817164a6638e2d9be12} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:23:57.411 [DEBU] {48f1760140c4c817194a6638d017e0dd} [  8 ms] [default] [rows:1  ] INSERT INTO `user_info`(`status`,`secret_answer`,`created_at`,`updated_at`,`name`,`avatar`,`password`,`user_salt`,`sex`,`sign`) VALUES(0,'123','2024-04-23 09:23:57','2024-04-23 09:23:57','xieyang','https://w.wallhaven.cc/full/gp/wallhaven-gpjj9q.jpg','7995d6159495483837537c2e6eba398d','59OMMxceMd',1,'我就是谢洋') 
+2024-04-23 09:24:34.690 [DEBU] {e0e32ab048c4c8171b4a6638ae62dbb5} [  4 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:24:34.692 [DEBU] {507a7eb048c4c8171c4a66382eac9656} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:25:26.532 [DEBU] {80e52ec254c4c8171e4a663839d9e9ca} [  4 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:25:26.535 [DEBU] {b03289c254c4c8171f4a66388ecf67b6} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:26:14.009 [DEBU] {c89923d05fc4c817214a6638731f4e6c} [  2 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:26:14.014 [DEBU] {b0fe7bd05fc4c817224a6638f48650b9} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:27:02.787 [DEBU] {5812c92a6bc4c817244a6638cab72105} [ 15 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:27:02.790 [DEBU] {988ac92b6bc4c817254a6638c8c2f740} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:27:39.911 [DEBU] {588d54d073c4c817274a663883f2a31c} [  2 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:27:39.914 [DEBU] {b0e189d073c4c817284a6638eb348fb7} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:28:00.482 [DEBU] {4895749a78c4c8172a4a6638966dead5} [  2 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:28:00.483 [DEBU] {00bd999a78c4c8172b4a6638f797054c} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:28:32.581 [DEBU] {4852aa1380c4c8172d4a6638676aaa25} [  2 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:28:32.583 [DEBU] {6850e11380c4c8172e4a66381eacafe1} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:29:02.421 [DEBU] {4079500687c4c817304a6638df3cbd60} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:29:02.422 [DEBU] {e021760687c4c817314a6638ebfe1f05} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:31:25.106 [DEBU] {382bde3ea8c4c817334a663809d013a0} [  4 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:31:25.108 [DEBU] {5869343fa8c4c817344a663857fbc94e} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:31:47.231 [DEBU] {e8fbc765adc4c817374a663874c2f714} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:31:47.233 [DEBU] {f016e665adc4c817384a6638ac87b1a2} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:31:50.329 [DEBU] {38a6731eaec4c8173a4a6638ff47a7a0} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:31:50.330 [DEBU] {50a1881eaec4c8173b4a66387b1b1c9c} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:31:56.616 [DEBU] {e0642695afc4c8173d4a66386cb347b9} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:31:56.618 [DEBU] {30a95095afc4c8173e4a66380882ee71} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:36:38.010 [DEBU] {80835b19f1c4c817404a663882da5365} [  4 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:36:38.012 [DEBU] {985db419f1c4c817414a663877886575} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:43:05.438 [DEBU] {f0ecc04d4bc5c817434a663834418108} [  6 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:43:05.441 [DEBU] {185d464e4bc5c817444a66389cf21b5a} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:43:26.715 [DEBU] {00bb484250c5c817464a6638886d2500} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:43:26.716 [DEBU] {5059644250c5c817474a663849f41e45} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:44:40.998 [DEBU] {1890cc8d61c5c817494a6638fe92b946} [  3 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:44:41.001 [DEBU] {6063108e61c5c8174a4a6638f41cc7ea} [  1 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:48:39.472 [DEBU] {18d4f21399c5c8174c4a6638d26bc924} [  3 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='admin') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:48:39.474 [DEBU] {40413a1499c5c8174d4a6638391ad92e} [  0 ms] [default] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='7') AND `deleted_at` IS NULL LIMIT 1
+2024-04-23 09:48:39.535 [DEBU] {3010831699c5c8174f4a663839b7859b} [ 21 ms] [default] [rows:7  ] SHOW FULL COLUMNS FROM `cart_info`
+2024-04-23 09:48:39.544 [DEBU] {3010831699c5c8174f4a663839b7859b} [  9 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `cart_info` WHERE (`user_id`=7) AND `deleted_at` IS NULL
+2024-04-23 09:54:45.242 [DEBU] {2088813ceec5c817524a663880e8a438} [  2 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `cart_info` WHERE (`user_id`=7) AND `deleted_at` IS NULL
+2024-04-23 11:04:20.734 [DEBU] {38cbae61bac9c817554a66381119d347} [121 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `cart_info` WHERE (`user_id`=7) AND `deleted_at` IS NULL
+2024-04-23 11:04:46.719 [DEBU] {a0ea3778c0c9c817584a663848e19b73} [  7 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `cart_info` WHERE (`user_id`=7) AND `deleted_at` IS NULL
+2024-04-23 11:05:20.559 98039: server gracefully shutting down by signal: terminated
+2024-04-23 11:05:20.560 [INFO] pid[98039]: all servers shutdown

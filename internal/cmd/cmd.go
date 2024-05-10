@@ -104,6 +104,7 @@ var (
 						controller.Collection,          //收藏
 						controller.Praise,              //收藏
 						controller.Comment,             //评论
+						controller.Consignee,           //收货地址
 						controller.Cart,                //购物车
 						controller.Order.Add,           //下单
 						controller.OrderGoodsComments,  //订单评价
@@ -112,7 +113,7 @@ var (
 					)
 				})
 			})
-			s.SetPort(8000) //设置端口
+			s.SetPort(8080) //设置端口
 			s.Run()
 			return nil
 		},
